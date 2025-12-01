@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sistema de Autenticación - Desafío</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Sistema de Autenticación</h1>
+      <p class="muted">Registro · Inicio de sesión · Bloqueo por intentos · Recuperación · Validaciones</p>
+    </header>
+
+    <section class="grid">
+
+      <!-- REGISTRO -->
+      <article class="card">
+        <h2>Crear cuenta</h2>
+        <form id="formRegistro" novalidate>
+
+          <label>Nombre completo
+            <input id="reg-nombre" type="text" required placeholder="Ej: Ana Pérez" />
+          </label>
+
+          <label>Correo (usuario)
+            <input id="reg-correo" type="email" required placeholder="ejemplo@dominio.com" />
+          </label>
+
+          <label>Número de móvil
+            <input id="reg-movil" type="tel" required placeholder="71234567" />
+          </label>
+
+          <label>Contraseña
+            <div class="row">
+              <input id="reg-pass" type="password" required placeholder="Min 6 car., 1 may., 1 num., 1 especial" />
+              <button type="button" class="link-btn" id="reg-togglePass">Mostrar</button>
+            </div>
+          </label>
+
+          <div class="actions">
+            <button type="submit" class="primary">Registrar</button>
+          </div>
+
+          <small id="reg-msg" class="msg"></small>
+        </form>
+      </article>
+
+      <!-- LOGIN -->
+      <article class="card">
+        <h2>Iniciar sesión</h2>
+
+        <form id="formIngreso" novalidate>
+
+          <label>Usuario (correo)
+            <input id="ing-correo" type="email" required />
+          </label>
+
+          <label>Contraseña
+            <div class="row">
+              <input id="ing-pass" type="password" required />
+              <button type="button" class="link-btn" id="ing-togglePass">Mostrar</button>
+            </div>
+          </label>
+
+          <div class="row actions">
+            <button type="submit" class="primary">Entrar</button>
+            <button type="button" id="mostrarRecuperar" class="link-btn">Recuperar contraseña</button>
+          </div>
+
+          <small id="ing-msg" class="msg"></small>
+        </form>
+
+        <div id="bienvenida" class="welcome" hidden>
+          <strong id="textoBienvenida"></strong>
+
+          <div style="margin-top:10px">
+            <button id="btnCerrarSesion">Cerrar sesión</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- RECUPERAR -->
+      <article class="card full" id="tarjetaRecuperar" hidden>
+        <h2>Recuperar / Actualizar contraseña</h2>
+
+        <form id="formRecuperar" novalidate>
+
+          <label>Correo registrado
+            <input id="rec-correo" type="email" required />
+          </label>
+
+          <label>Nueva contraseña
+            <div class="row">
+              <input id="rec-pass" type="password" required />
+              <button type="button" class="link-btn" id="rec-togglePass">Mostrar</button>
+            </div>
+          </label>
+
+          <div class="actions row">
+            <button type="submit" class="primary">Actualizar contraseña</button>
+            <button type="button" id="ocultarRecuperar" class="link-btn">Cancelar</button>
+          </div>
+
+          <small id="rec-msg" class="msg"></small>
+        </form>
+      </article>
+
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
